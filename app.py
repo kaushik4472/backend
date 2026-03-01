@@ -23,7 +23,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Allow React dev server to call this API
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # ── Load the pipeline once at startup ──────────────────────────────────────────
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "cardio_advanced_pipeline.pkl")
